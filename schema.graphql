@@ -1,0 +1,12 @@
+type SkyGazer @entity {
+  id: ID!
+  tokenId: BigInt!
+  owner: SkyGazerOwner!
+  tokenUri: String!
+}
+
+type SkyGazerOwner @entity {
+  id: ID!
+  address: Bytes!
+  skygazers: [SkyGazer!]! @derivedFrom(field: "owner")
+}
